@@ -1,0 +1,147 @@
+iframe {
+    height: inherit;
+    width: 100%;
+}
+
+.btn-orange {
+    background: #a0b3d4;
+}
+
+.lib a {
+    color: #a0b3d4 !important;
+}
+.lib a:hover {
+    color: #CDD8EC !important;
+}
+
+.blog_card {
+    background: #2B2B2B;
+    color: white;
+    border: 1px solid #353535;
+}
+
+#bot-details-page #bot-stats .btns {
+    margin-top: 0;
+}
+
+.content {
+    background-color: rgba(0, 0, 0, 0) !important;
+    box-shadow: 0 0 0 0 #2B2B2B, inset 0 0 0 0 #2B2B2B, inset 0 0 0 0 #2B2B2B !important;
+}
+
+body {
+    background-color: #2B2B2B !important;
+}
+
+p, #createdby {
+    color: #f5f5dc !important;
+}
+
+#bot-info .is-flex .bot-name,
+#bot-info .lib,
+#bot-info .bot-description,
+#bot-info .bot-btns #websitelink,
+#bot-info .bot-btns #invite,
+#bot-info .bot-btns #edit,
+#bot-info .bot-btns2 #github {
+    color: #f5f5dc;
+}
+
+#bot-info .bot-btns #websitelink:hover,
+#bot-info .bot-btns #invite:hover,
+#bot-info .bot-btns #edit:hover,
+#bot-info .bot-btns a.btn.color-red:hover,
+#bot-info .bot-btns2 #github:hover {
+    color: #a0b3d4
+}
+
+#bot-stats p,
+#bot-stats p #prefix {
+    color: #f5f5dc !important;
+}
+
+#bot-stats {
+    display: none;
+}
+
+#bot-details-page .bot-img {
+    border-radius: 50%;
+}
+
+.content p {
+    color: #f5f5dc;
+    text-align: center;
+}
+
+#menu {
+    background: #a0b3d4 !important;
+}
+
+.btns .atag,
+.bot-btns2 .botpagebutton,
+.bot-btns .botpagebutton,
+.bot-btnss .botpagebutton {
+    background-color: #303030;
+    color: #f5f5dc;
+    border-radius: 0;
+    box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
+}
+
+.bot-btns2 .botpagebutton:hover,
+.bot-btns .botpagebutton:hover {
+    color: #a0b3d4;
+}
+
+#websitelink:hover,
+#invite:hover,
+#edit:hover {
+    color: #a0b3d4 !important;
+}
+
+.atag::before {
+    background-color: #f5f5dc;
+    border-radius: 10px;
+    box-shadow: inset 0 1px rgba(0, 0, 0, 0.25);
+    content: '';
+    height: 6px;
+    left: 10px;
+    position: absolute;
+    width: 6px;
+    top: 10px;
+}
+
+.atag::after {
+    background: transparent !important;
+    border-bottom: 13px solid transparent;
+    border-left: 10px solid #303030;
+    border-top: 13px solid transparent;
+    content: '';
+    position: absolute;
+    right: -10px;
+    top: 0;
+}
+
+.atag:hover {
+    background-color: #303030;
+    color: #a0b3d4;
+}
+
+.atag:hover::before {
+    background-color: #a0b3d4;
+}
+
+.atag:hover::after {
+    border-left-color: #303030; 
+}
+
+code {
+    background-color: #252525;
+    color: #ff3860;
+    font-size: 0.875em;
+    font-weight: normal;
+    padding: 0.25em 0.5em 0.25em;
+}
+
+.longdescription iframe {
+    height: 900px;
+}

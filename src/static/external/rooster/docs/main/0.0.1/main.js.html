@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>main.js - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Classes</li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="DateTime.html">DateTime</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="DateTime.html#.getCurrentDate">getCurrentDate</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="DateTime.html#.splitDate">splitDate</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="DateTime.html#.splitTime">splitTime</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="Numbers.html">Numbers</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Numbers.html#random">random</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Numbers.html#random_excl">random_excl</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Numbers.html#random_incl">random_incl</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Numbers.html#random_int">random_int</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Numbers.html#random_int31">random_int31</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Numbers.html#random_long">random_long</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="Password.html">Password</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Password.html#generate">generate</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="Utils.html">Utils</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Utils.html#.blendColors">blendColors</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Utils.html#.foreachAsync">foreachAsync</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Utils.html#.forinAsync">forinAsync</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Utils.html#.generateIV">generateIV</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Utils.html#.getUrlParameter">getUrlParameter</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Utils.html#.isNotNullOrUndef">isNotNullOrUndef</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Utils.html#.isNullOrUndef">isNullOrUndef</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Utils.html#.round">round</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Utils.html#.shadeColor">shadeColor</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Utils.html#.stripAndCollapse">stripAndCollapse</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Utils.html#editColor">editColor</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Utils.html#getCookie">getCookie</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Utils.html#waitFor">waitFor</a></span></li><li class="nav-heading"><a href="global.html">Globals</a></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#apiCallAsync">apiCallAsync</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#beforeLogin">beforeLogin</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#browser">browser</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#centerCaptcha">centerCaptcha</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#createNewClient">createNewClient</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#device">device</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#failed">failed</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#handleException">handleException</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#login">login</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#logout">logout</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#os">os</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#renderCaptcha">renderCaptcha</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#setEventCheck">setEventCheck</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#showMessages">showMessages</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#showSnackbar">showSnackbar</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#updateCalendarEvents">updateCalendarEvents</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#updateCalendarTitle">updateCalendarTitle</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#weeks">weeks</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#years">years</a></span></li>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">main.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/*
+ * Documentation for this file can be found here: https://kurozeropb.info/static/external/rooster/docs/main/0.0.1/
+ */
+
+window.filters = [];
+window.captchaData = "";
+var rnothtmlwhite = (/[^\x20\t\r\n\f]+/g);
+var utils = new Utils();
+
+// Dynamic window height
+$(":root").css("--windowHeight", $(window).height());
+
+// Loading settings
+$.LoadingOverlaySetup({background: "rgba(255, 255, 255, 0.5)"});
+
+// Hold content until everything is ready
+$.holdReady(true);
+
+// Get the login type of the user, either user or client
+// Check the session of the person that is currently browsing the site
+var loginType = localStorage.getItem("loginType");
+apiCallAsync("POST", "auth", "session", {type: loginType})
+    .then(async (data) => {
+        // If data or data.body is empty return, failed to login
+        if ($.isEmptyObject(data) || $.isEmptyObject(data.body)) return failed();
+        // If the current window location is not /login.php
+        // and the response did not return a userID the person is not logged in so return
+        if (window.location.href !== `${websiteURL}/login.php` &amp;&amp; !data.body.userID) return failed();
+
+        // If the logged in person is a client (user level 4 or loginType client)
+        // they can only access their own client page
+        if (data.body.userLevel === "4" &amp;&amp; data.body.loginType === "client") {
+            var regexUrl = new RegExp(`^(https://(rooster-new.frdtest|rooster.futurisonline).nl/admin/deelnemers/deelnemer.php\\?clientID=${data.body.userID})$`, "gi");
+            var uri = window.location.href;
+            if (!regexUrl.test(uri))
+                return window.location.replace(`${websiteURL}/deelnemers/deelnemer.php?clientID=${data.body.userID}`);
+        }
+
+        // If userID is truthy the person is logged in
+        if (!!data.body.userID) {
+            console.log(`Welcome ${data.body.name}`);
+            console.log(data.body);
+            var url = window.location.href;
+
+            // User name card in header
+            $("#userName").html(`&lt;small>Welkom  ${data.body.name} (${data.body.username})&lt;/small>`);
+            $("#userPermission").html(`&lt;small>Ingelogd als &lt;strong> ${data.body.permission}&lt;/strong> (${data.body.timeLogged})&lt;/small>`);
+            $("#userCompanies").html(`&lt;small>Toegang tot : ${data.body.companycsv}&lt;/small>`);
+
+            if ($.isEmptyObject(data.body.companies) || data.body.companies.length &lt;= 0) {
+                showSnackbar("Failed to fetch companies, please try to refresh the page.");
+            } else if (data.body.userLevel !== "4") {
+                await Utils.foreachAsync(data.body.companies, async (row) => {
+                    $("#collapseBedrijven").ready(() => {
+                        $("#collapseBedrijven").append(`&lt;li class="nav-item" data-toggle="tooltip" data-placement="right" title="${row.name}">&lt;a href="${websiteURL}/bedrijven/bedrijf.php?companyID=${row.id}">${row.name}`);
+                        $("#collapseBedrijven").append(`&lt;a href="${websiteURL}/planning/kalender.php?companyID=${row.id}" class="float-right btn btn-dark btn-sm" style="margin-top: -46px; margin-right: 12px;">&lt;span class="ui-tooltip far fa-calendar-alt"  id="calendar-button">&lt;/span>&lt;/a>&lt;/li>`);
+                    });
+                });
+            }
+
+            // User level specific actions
+            if (data.body.userLevel === "1") {
+                // Collapse menu depending on the window location for admins
+
+                $("#adminMenu").show();
+
+                var rooster = new RegExp("^(https://(rooster-new\.frdtest|rooster\.futurisonline)\.nl/admin/?)((bedrijven/bedrijf|planning/kalender|index)(\.php)(.+)?)?$", "gi");
+                var showCompanies = rooster.test(url);
+                if (showCompanies) {
+                    $("#collapseBedrijven").collapse("show");
+                    $("#collapseAdministrator").collapse("hide");
+                } else {
+                    $("#collapseBedrijven").collapse("hide");
+                    $("#collapseAdministrator").collapse("show");
+                }
+            } else if (data.body.userLevel === "4" &amp;&amp; data.body.loginType === "client") {
+                // Remove the menu
+
+                $("#menu").remove();
+                $("#main").css("margin-left", "0");
+            } else {
+                // Remove admin menu for non-admin users
+
+                $("#adminMenu").empty();
+                $("#collapseBedrijven").collapse("show");
+            }
+
+            // Show content
+            $.holdReady(false);
+        } else {
+            // If only login page show content
+            if (window.location.href === `${websiteURL}/login.php`)
+                $.holdReady(false);
+        }
+    }).catch(() => failed()); // If an error happened failed to login
+
+(function ($) {
+    /**
+     * Show an alert message
+     * @param {String} status - Can be primary, secondary, success, danger, warning, info, light, dark
+     * @param {Array} messages - Array of messages to show
+     */
+    $.fn.showMessages = function (status, messages) {
+        if (status &amp;&amp; messages) {
+            var html = `&lt;div class="alert alert-${status}">`;
+            html += '&lt;button type="button" class="close" id="btn-close" data-dismiss="alert" aria-label="Close">&lt;span aria-hidden="true">×&lt;/span>&lt;/button>';
+            html += '&lt;ul>';
+            messages.forEach((message) => html += `&lt;li>${message}&lt;/li>`);
+            html += '&lt;ul>&lt;/div>';
+            $(this).html(html);
+        }
+    };
+
+    /**
+     * Replaces the default load function from jQuery with an async load function that uses axios for http requests
+     * @param {String} url
+     * @param {Object?} params
+     * @returns {Promise&lt;jQuery>}
+     */
+    $.fn.load = async function (url, params) {
+        var selector;
+        var type;
+        var self = this;
+        var off = url.indexOf(" ");
+
+        if (off > -1) {
+            selector = Utils.stripAndCollapse(url.slice(off));
+            url = url.slice(0, off);
+        }
+
+        if (params &amp;&amp; typeof params === "object") {
+            type = "POST";
+            var bodyData = new URLSearchParams();
+            await Utils.forinAsync(params, async (value, key) => {
+                bodyData.append(key, value);
+            });
+        }
+
+        if (self.length > 0) {
+            try {
+                var result = await axios({ url: url, method: type || "GET", dataType: "html", data: bodyData });
+                self.html(selector ? jQuery("&lt;div>").append(jQuery.parseHTML(result.data)).find(selector) : result.data);
+                return this;
+            } catch (error) {
+                throw error;
+            }
+        }
+
+        return this;
+    };
+})(jQuery);
+
+$(document).ready(() => {
+    $("#modal").on("show.bs.modal", async function (e) {
+        // Session check
+        var loginType = localStorage.getItem("loginType");
+        const data = await apiCallAsync("POST", "auth", "session", {type: loginType});
+        if ($.isEmptyObject(data) || $.isEmptyObject(data.body) || !data.body.userID) {
+            sessionStorage.clear();
+            showSnackbar("Invalid session, redirecting to login page");
+            setTimeout(() => window.location.replace(`${websiteURL}/login.php`), 1000);
+            return null;
+        }
+
+        var dialog = $(this).find(".modal-dialog");
+        var titleElement = $(this).find(".modal-title");
+        var bodyElement = $(this).find(".modal-body");
+
+        dialog.LoadingOverlay("show");
+
+        var link = $(e.relatedTarget);
+        if (Object.keys(link).length === 0) return dialog.LoadingOverlay("hide");
+
+        // Clear old shit
+        titleElement.html("");
+        bodyElement.html("");
+
+        console.log(link.prop("href"));
+
+        var icon = link.attr("data-modal-icon");
+        var title = link.attr("title");
+        if (!title) title = link.attr("data-original-title");
+        var modalTitle = `&lt;p id="modal-title-inner">&lt;i class="${icon}" id="modal-title-icon">&lt;/i>&amp;nbsp;&lt;span id="modal-title-text">${title}&lt;/span>&lt;/p>`;
+        titleElement.html(modalTitle);
+
+        try {
+            if ((link.attr("data-id") !== '') &amp;&amp; (typeof link.attr("data-id") !== 'undefined')) {
+                await bodyElement.load(`${link.attr("href")}?id=${link.attr("data-id")}`);
+                dialog.LoadingOverlay("hide");
+            } else {
+                await bodyElement.load(link.attr("href"));
+                dialog.LoadingOverlay("hide");
+            }
+        } catch (error) {
+            handleException(error);
+        }
+    });
+
+    $("#modal").on("hide.bs.modal", function () {
+        $(this).find(".modal-title").html("");
+        $(this).find(".modal-body").html("");
+        $(".modal-dialog").LoadingOverlay("hide");
+    });
+
+    $("#modal").on("hidden.bs.modal", function () {
+        $(this).find(".modal-title").html("");
+        $(this).find(".modal-body").html("");
+        $(".modal-dialog").LoadingOverlay("hide");
+    });
+
+    $("button#btn-close").click((e) => {
+        e.preventDefault();
+        $("#btn-close").modal("hide");
+    });
+
+    $("#userLogout").click(async () => await logout());
+});
+
+/**
+ * Generate passwords
+ */
+class Password {
+    constructor() {
+        this._pattern = /[a-zA-Z0-9_\-+.]/;
+    }
+
+    _getRandomByte() {
+        var result = new Uint8Array(1);
+        if (window.crypto &amp;&amp; window.crypto.getRandomValues) {
+            window.crypto.getRandomValues(result);
+            return result[0];
+        } else if (window.msCrypto &amp;&amp; window.msCrypto.getRandomValues) {
+            window.msCrypto.getRandomValues(result);
+            return result[0];
+        } else {
+            return Math.floor(Math.random() * 256);
+        }
+    }
+
+    /**
+     * Generates a password with the given length
+     * @param {Number} length
+     * @returns {String}
+     */
+    generate(length) {
+        return Array.apply(null, {'length': length})
+            .map(() => {
+                var result;
+                while (true) {
+                    result = String.fromCharCode(this._getRandomByte());
+                    if (this._pattern.test(result)) {
+                        return result;
+                    }
+                }
+            }, this).join('');
+    }
+}
+
+/**
+ * Date and time functions
+ */
+class DateTime {
+    /**
+     * Gets the current date formatted as yyyy-mm-dd
+     * @returns {String} The formatted date as string
+     * @example
+     * const now = DateTime.getCurrentDate();
+     * console.log(now);
+     */
+    static getCurrentDate() {
+        var d = new Date();
+        var month = d.getMonth() + 1;
+        var day = d.getDate();
+        return `${d.getFullYear()}-${month.toString().length &lt; 2 ? '0' : ''}${month}-${day.toString().length &lt; 2 ? '0' : ''}${day}`;
+    }
+
+    /**
+     * Splits event start and end time
+     * @param {String} date - The event date to split
+     * @param {Function} cb - Callback to handle the results
+     * @returns {*}
+     * @throws {Error} error - DATE_UNDEFINED
+     * @example
+     * DateTime.splitTime("2018-06-19T10:24:37", (result, error) => {
+     *     if (error) return handleException(error);
+     *     console.log(result); //=> 10:24:37
+     * });
+     */
+    static splitTime(date, cb) {
+        if (!date) return cb(null, new Error('DATE_UNDEFINED'));
+        var time = date.split("T");
+        return cb(time[1], null);
+    }
+
+    /**
+     * Splits event start and end date
+     * @param {String} date - The event date to split
+     * @param {Function} cb - Callback to handle the results
+     * @returns {*}
+     * @throws {Error} error - DATE_UNDEFINED
+     * @example
+     * DateTime.splitDate("2018-06-19T10:24:37", (result, error) => {
+     *     if (error) return handleException(error);
+     *     console.log(result); //=> 2018-06-19
+     * });
+     */
+    static splitDate(date, cb) {
+        if (!date) return cb(null, new Error('DATE_UNDEFINED'));
+        var time = date.split("T");
+        return cb(time[0], null);
+    }
+}
+
+//////////////////////
+// Global functions //
+//////////////////////
+
+/**
+ * Update the eventCheck
+ * @param {Boolean} bool - Boolean to set
+ * @returns {Promise&lt;void>}
+ * @throws {TypeError} error - when value is not a boolean
+ */
+async function setEventCheck(bool) {
+    if (typeof bool !== "boolean") throw new TypeError("Argument bool needs to be of type boolean");
+    window.globalEventCheck = bool;
+    setTimeout(() => window.globalEventCheck = false, 2000);
+}
+
+/**
+ * Shows a message
+ * @param {String} status - The status of the message
+ * @param {Array} messages - The message to show
+ * @param {String} target - The target to show the message on
+ * @example
+ * // Shows a danger message
+ * showMessage("danger", ["Something bad happened"], "#messages")
+ */
+function showMessages(status, messages, target) {
+    if (status &amp;&amp; messages &amp;&amp; target) {
+        var html = `&lt;div class="alert alert-${status}">`;
+        html += '&lt;button type="button" class="close" id="btn-close" data-dismiss="alert" aria-label="Close">&lt;span aria-hidden="true">×&lt;/span>&lt;/button>';
+        html += '&lt;ul>';
+        messages.forEach((message) => html += `&lt;li>${message}&lt;/li>`);
+        html += '&lt;ul>&lt;/div>';
+        $(target).html(html);
+    }
+}
+
+/**
+ * The one and only true function to interact with the api!
+ * @param {String} method - Any http request method
+ * @param {String} module - The module to use
+ * @param {String} action - The action to preform
+ * @param {Object} obj - The request body to send
+ * @param {Object} params - Optionally any url parameters
+ * @param {Boolean} skipDataCheck - Skips certain checks
+ * @returns {Promise&lt;*>}
+ * @throws {Error|TypeError|*} errors
+ * @example
+ * // Returns all events from the company with id 1 using async/await
+ * const response = await apiCallAsync("POST", "event", "read", {companyID: "1"}, {extraParam: "hello"});
+ *
+ * // Returns all events from the company with id 1 using promises
+ * apiCallAsync("POST", "event", "read", {companyID: "1"}).then((response) => {
+ *     // Do something with the response
+ * }).catch((error) => {
+ *     // Handle errors
+ * });
+ */
+async function apiCallAsync(method, module, action, obj, params = {}, skipDataCheck = false) {
+    if (!$.isEmptyObject(obj) &amp;&amp; typeof obj !== "object") throw new TypeError("Data needs to be an object");
+    if (!$.isEmptyObject(params) &amp;&amp; typeof params !== "object") throw new TypeError("Params needs to be an object");
+
+    const payload = {
+        method: method,
+        url: APIURL + "/index.php",
+        headers: {"Content-Type": "application/json"},
+        params: {module: module, action: action},
+        data: obj
+    };
+
+    // If the method is get and obj has values put those values as url params
+    // since get requests don't use request body
+    if (method.toLowerCase() === "get" &amp;&amp; !$.isEmptyObject(obj)) {
+        await Utils.forinAsync(obj, async (value, key) => {
+            payload.params[key] = value;
+        });
+    }
+
+    // If extra params are defined add those to the payload
+    if (!$.isEmptyObject(params)) {
+        await Utils.forinAsync(params, async (value, key) => {
+            payload.params[key] = value;
+        });
+    }
+
+    // Make the request and return the data
+    const response = await axios(payload);
+
+    // Some default checks
+    if (response.status >= 400) {
+        response.data = {status: "danger", messages: [`${response.status}: ${response.statusText}`]};
+    } else if ($.isEmptyObject(response.data) &amp;&amp; !skipDataCheck) {
+        response.data = {status: "danger", messages: ["Geen data gekregen van de API"]};
+    } else if (!$.isEmptyObject(response.data.messages) &amp;&amp; response.data.messages.indexOf("Niet ingelogd.") > -1) {
+        window.location.replace(websiteURL + "/login.php");
+        response.data = {status: "danger", messages: ["Niet ingelogd"]};
+    }
+
+    return response.data;
+}
+
+/**
+ * Check for login attempts and captcha before logging in
+ * @param {String} captcha - The captcha code
+ * @param {String} type
+ * @returns {Promise&lt;void>}
+ * @throws {Error|*} errors
+ * @example
+ * // Executes beforeLogin when submitting the forum
+ * $("#loginForm").submit(async () => {
+ *     // Using async/await
+ *     try {
+ *         await beforeLogin("sajdnj38hiusans=-2-osd9n");
+ *     } catch (error) {
+ *         handleException(error);
+ *     }
+ *
+ *     // Using promises (No .then() is needed because the promise resolves in void meaning nothing)
+ *     beforeLogin("sajdnj38hiusans=-2-osd9n")
+ *         .catch((error) => handleException(error));
+ * });
+ */
+async function beforeLogin(captcha, type) {
+    var unameIV = Utils.generateIV();
+    if (!unameIV) return;
+    var uname = CryptoJS.AES.encrypt($("#username").val(), window.str_1, {
+        iv: CryptoJS.enc.Hex.parse(unameIV),
+        mode: CryptoJS.mode.CBC,
+        padding: CryptoJS.pad.Pkcs7
+    }).toString();
+
+    var passwdIV = Utils.generateIV();
+    if (!passwdIV) return;
+    var passwd = CryptoJS.AES.encrypt($("#password").val(), window.str_2, {
+        iv: CryptoJS.enc.Hex.parse(passwdIV),
+        mode: CryptoJS.mode.CBC,
+        padding: CryptoJS.pad.Pkcs7
+    }).toString();
+
+    // Check for login attempts
+    var att = await apiCallAsync("POST", "auth", "attempts", {username: uname, password: passwd, response: captcha, type});
+    if (att.status !== "success") return $("#messages").showMessages(att.status, att.messages);
+    if ($.isEmptyObject(att.body) || !att.body) return $("#messages").showMessages("danger", ["Er bestaat geen gebruiker met deze gebruikersnaam"]);
+
+    // If more than 3 check for captcha
+    if (att.body.loginAttempts >= 3) {
+        await renderCaptcha(); // Render captcha
+        var cap = await apiCallAsync("POST", "auth", "captcha", {response: captcha}); // Check if captcha is verified
+        if (cap.status !== "success") return $("#messages").showMessages(cap.status, cap.messages);
+        var check = $.isEmptyObject(cap.body) ? false : cap.body.success;
+        if (!check &amp;&amp; att.body.loginAttempts >= 3) return $("#messages").showMessages("danger", ["Valideer eerst de captcha voor het inloggen"]); // Not verified return
+        await login(uname, passwd, att.body.loginAttempts, type); // If verified try to login
+    } else {
+        await login(uname, passwd, att.body.loginAttempts, type); // Try to login
+    }
+}
+
+/**
+ * Login
+ * @param {String} user - The username
+ * @param {String} pass - The password
+ * @param {Number} attempts - Login attempts
+ * @param {String} type
+ * @returns {Promise&lt;void>}
+ * @throws {Error|*} errors
+ * @example
+ * // Tries to login as test
+ *
+ * // Using async/await
+ * try {
+ *     await login("test", "1234", 1);
+ * } catch (error) {
+ *     handleException(error);
+ * }
+ *
+ * // Using promises
+ * login("test", "1234", 1)
+ *     .catch((error) => handleException(error));
+ */
+async function login(user, pass, attempts, type) {
+    var data = await apiCallAsync("POST", "auth", "login", {username: user, password: pass, type});
+    if ($.isEmptyObject(data)) return;
+
+    if (data.status !== "success") {
+        if (!$.isEmptyObject(data.body) &amp;&amp; data.body.blockLogin) {
+            grecaptcha.reset();
+            $("#recaptcha").hide();
+            return $("#messages").showMessages(data.status, data.messages);
+        }
+
+        if (attempts >= 3) {
+            $("#recaptcha").show();
+            grecaptcha.reset();
+            centerCaptcha();
+        }
+        $("#messages").showMessages(data.status, data.messages);
+    } else {
+        $("#messages").showMessages(data.status, data.messages);
+
+        if (data.body.userLevel === "4" &amp;&amp; data.body.loginType === "client") {
+            $("#menu").css("display", "none");
+            $("#ora-logo").attr("href", `${websiteURL}/deelnemers/deelnemer.php?clientID=${data.body.id}`);
+            return window.location.replace(`${websiteURL}/deelnemers/deelnemer.php?clientID=${data.body.id}`);
+        }
+
+        window.location.replace(websiteURL + "/index.php");
+    }
+}
+
+/**
+ * Logout
+ * @returns {Promise&lt;void>}
+ */
+async function logout() {
+    try {
+        var data = await apiCallAsync("POST", "auth", "logout", {logout: 1});
+        if (data &amp;&amp; data.status === "success") {
+            showMessages(data.status, data.messages, "messages");
+            window.location.replace(websiteURL + "/login.php");
+        }
+    } catch (e) {
+        handleException(e);
+    }
+}
+
+/**
+ * Render the captcha
+ * @returns {Promise&lt;Boolean>}
+ */
+async function renderCaptcha() {
+    var isRendered = document.getElementById('recaptcha').childElementCount;
+    if (isRendered === 0) {
+        grecaptcha.render("recaptcha", {
+            sitekey: window.captchaKey,
+            callback: (data) => window.captchaData = data,
+            "expired-callback": () => setTimeout(() => centerCaptcha(), 500),
+            "error-callback": (error) => handleException(error)
+        });
+        centerCaptcha();
+        return true;
+    }
+    return false;
+}
+
+/**
+ * Center the captcha box
+ */
+function centerCaptcha() {
+    var children = $("#recaptcha").children();
+    children.removeAttr("style");
+    children.css("height", "78px");
+}
+
+/**
+ * Failed to login
+ */
+function failed() {
+    sessionStorage.clear();
+    window.location.replace(`${websiteURL}/login.php`);
+}
+
+Object.defineProperties(String.prototype, {
+    isBlank: {
+        /**
+         * Check if string is blank
+         * @return {Boolean}
+         */
+        get: function () {
+            return /^\s*$/.test(this);
+        }
+    },
+    isJSON: {
+        /**
+         * Check if string is valid json
+         * @return {Boolean}
+         */
+        get: function () {
+            var str = this;
+            if (str.isBlank) return false;
+            str = str.replace(/\\(?:["\\\/bfnrt]|u[0-9a-fA-F]{4})/g, '@');
+            str = str.replace(/"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g, ']');
+            str = str.replace(/(?:^|:|,)(?:\s*\[)+/g, '');
+            return (/^[\],:{}\s]*$/).test(str);
+        }
+    }
+});
+
+jQuery.extend(jQuery.fn, {
+    /**
+     * Fill property with years
+     * @param {Number} start - The year to start from
+     * @param {Number} selected - The year to auto select
+     * @example
+     * // Adds all years from 2016 until current year to the select list
+     * $("#years-select").years(2016, new Date().getFullYear());
+     */
+    years: function (start, selected) {
+        for (var i = new Date().getFullYear(); i >= start; i--) {
+            var option = document.createElement('option');
+            option.textContent = i.toString();
+            option.value = i.toString();
+            $(this).append(option);
+
+            if (selected === i) {
+                option.selected = true;
+                $(this).append(option);
+            } else {
+                $(this).append(option);
+            }
+        }
+    },
+    /**
+     * Fill property with week numbers
+     * @example
+     * // Adds all week numbers to the weeks select list
+     * $("#weeks-select").weeks();
+     */
+    weeks: function () {
+        for (var i = 1; i &lt;= 52; i++) {
+            var option = document.createElement('option');
+            option.textContent = i &lt; 10 ? `0${i}` : i;
+            option.value = i.toString();
+
+            var currWeek = parseInt(moment().format('W'));
+            currWeek = currWeek &lt; 10 ? `0${currWeek}` : currWeek;
+            if (i === currWeek) {
+                option.selected = true;
+                $(this).append(option);
+            } else {
+                $(this).append(option);
+            }
+        }
+    }
+});
+
+/**
+ * Handle errors
+ * @param {Error} e - An error
+ * @example
+ * // Handle any error showing a message + adding it to the logs
+ * try {
+ *     // Something that throws
+ * } catch (error) {
+ *     handleException(error);
+ * }
+ */
+function handleException(e) {
+    // Error name,line,column only supported on firefox!?!?
+    let filename = null;
+    if (e.fileName) {
+        filename = e.fileName.substring(0, e.fileName.indexOf("?"));
+        filename = filename ? filename : e.fileName;
+        filename = filename.replace(new RegExp(`${baseURL}/?`, "gi"), "");
+    }
+
+    const msg = `${e.name ? e.name : "Error"}: ${e.message ? e.message : "An unkown error occured"} | ` +
+        `${filename ? filename : "?"}:${e.lineNumber ? e.lineNumber : "?"}:${e.columnNumber ? e.columnNumber : "?"} | ` +
+        `Browser: ${browser()}, OS: ${os()}, Device: ${device()}`;
+
+    apiCallAsync("POST", "log", "create", {message: msg.replace(/\\?/gi, "")}).then(() => {
+        console.error(e);
+        showSnackbar(`${e.name ? e.name : "Error"}: ${e.message ? e.message : "An unkown error occured"}`);
+    }).catch((error) => {
+        console.error(error);
+        showSnackbar(`${error.name ? error.name : "Error"}: ${error.message ? error.message : "An unkown error occured"}`);
+    });
+}
+
+/**
+ * Show a small snackbar popup
+ * @param {String} message - The text to show in the snackbar
+ * @example
+ * // Shows a snackbar at the bottom of the screen with the given string for 6 seconds
+ * showSnackbar("This is a snackbar message");
+ */
+function showSnackbar(message) {
+    var x = document.getElementById("snackbar");
+    x.className = "show";
+    x.innerText = message;
+    setTimeout(() => {
+        x.className = x.className.replace("show", "");
+        x.innerText = x.innerText = "";
+    }, 6000);
+}
+
+/**
+ * Check for blink browser
+ * @return {Boolean}
+ */
+is.blink = () => (is.chrome() || is.opera()) &amp;&amp; !!window.CSS;
+
+/**
+ * Gets the browser name the current user is using
+ * @returns {String}
+ */
+var browser = () => {
+    return is.chrome() ? "Chrome" :
+        is.edge() ? "Edge" :
+            is.firefox() ? "Firefox" :
+                is.ie() ? "IE" :
+                    is.opera() ? "Opera" :
+                        is.operaMini() ? "Opera Mini" :
+                            is.phantom() ? "Phantom" :
+                                is.safari() ? "Safari" :
+                                    is.blink() ? "Blink" :
+                                        "Unknown";
+};
+
+/**
+ * Gets the OS name the current user is using
+ * @returns {String}
+ */
+var os = () => is.mac() ? "MAC" : is.linux() ? "Linux" : is.windows() ? "Windows" : is.ios() ? "IOS" : is.android() ? "Android" : "Unknown";
+
+/**
+ * Gets the device type the current user is using
+ * @returns {String}
+ */
+var device = () => is.desktop() ? "Desktop" : is.mobile() ? "Mobile" : is.tablet() ? "Tablet" : "Unknown";
+
+/**
+ * Format date to something like 1970-01-01
+ * @returns {String}
+ */
+Date.prototype.yyyymmdd = function () {
+    var mm = this.getMonth() + 1;
+    var dd = this.getDate();
+
+    return [this.getFullYear(),
+        (mm > 9 ? '' : '0') + mm,
+        (dd > 9 ? '' : '0') + dd
+    ].join('-');
+};
+
+/**
+ * Format date to something like 01-01-1970
+ * @returns {String}
+ */
+Date.prototype.ddmmyyyy = function () {
+    var mm = this.getMonth() + 1;
+    var dd = this.getDate();
+
+    return [(dd > 9 ? '' : '0') + dd,
+        (mm > 9 ? '' : '0') + mm,
+        this.getFullYear()
+    ].join('-');
+};
+
+/**
+ * Updates the fullcalendar events
+ * @param {String} company - The company id
+ * @param {String} client - The client id
+ * @param {String} date - A specific date to jump to
+ * @param {Object} view - The current fullcalendar view
+ * @example
+ * // Updates the calendar events for company with the id 1
+ * updateCalendarEvents("1", null, null, $("#calendar").fullCalendar("getView"));
+ */
+function updateCalendarEvents(company, client, date, view) {
+    $("#calendar").LoadingOverlay("show");
+
+    var fulldate = $("#calendar").fullCalendar("getDate")._d;
+    var firstDay = window.firstDay = new Date(`${fulldate.getFullYear()}-${fulldate.getMonth()}-25`);
+    var lastDay = window.lastDay = new Date(`${fulldate.getFullYear()}-${fulldate.getMonth() + 2}-6`);
+    var start = firstDay.yyyymmdd();
+    var end = lastDay.yyyymmdd();
+
+    window.loadedFirst = new Date(fulldate.getFullYear(), fulldate.getMonth(), 1);
+    window.loadedLast = new Date(fulldate.getFullYear(), fulldate.getMonth() + 1, 0);
+
+    $("#calendar").fullCalendar("removeEvents");
+    updateCalendarTitle(view);
+    apiCallAsync("POST", "event", "read", {
+        companyID: company,
+        clientID: client,
+        start: start,
+        end: end,
+        date: date
+    }, null, true).then(async (data) => {
+        if ($.isEmptyObject(data)) {
+            $("#calendar").LoadingOverlay("hide");
+            return showSnackbar("Geen events gevonden");
+        }
+        if (data.status &amp;&amp; data.status !== "success") {
+            $("#calendar").LoadingOverlay("hide");
+            if (!data.messages) {
+                return showSnackbar("Geen events gevonden");
+            }
+            throw new Error(data.messages);
+        }
+
+        if (filters.length > 0) {
+            var ev = [];
+            await Utils.foreachAsync(filters, async (filter) => {
+                var filtered = data.filter((ev) => ev.status_short === filter);
+                ev.push(...filtered);
+            });
+            $("#calendar").fullCalendar("renderEvents", ev);
+        } else {
+            $("#calendar").fullCalendar("renderEvents", data);
+        }
+    }).catch((e) => handleException(e));
+}
+
+/**
+ * Update the current calendar title
+ * @param {Object} view - The current fullcalendar view
+ * @example
+ * // Updates the calendar title depending on the view
+ * updateCalendarTitle($("#calendar").fullCalendar("getView"));
+ */
+function updateCalendarTitle(view) {
+    if (!!view) {
+        var v = view.name.toLowerCase();
+        if (v.includes("week") || v.includes("day")) {
+            $(".fc-header-toolbar .fc-center h2").text(view.title);
+        } else {
+            if (window.loadedFirst &amp;&amp; window.loadedLast) {
+                $(".fc-header-toolbar .fc-center h2").text(`${window.loadedFirst.ddmmyyyy()} t/m ${window.loadedLast.ddmmyyyy()}`);
+            }
+        }
+    }
+}
+
+/**
+ * Create a new client
+ * @param {Object} options
+ * @param {String} options.name
+ * @param {String} [options.tel]
+ * @param {String} [options.email]
+ * @param {String} [options.country]
+ * @param {String} [options.city]
+ * @param {String} [options.postal]
+ * @param {String} [options.adress]
+ * @param {String} options.maxWeeklyHours
+ * @param {Array} options.companyIDs
+ * @param {Array} [options.contactIDs]
+ * @param {String} options.active
+ * @param {String} options.password
+ * @returns {Promise&lt;Boolean|Object>}
+ * @throws {Error|*} errors
+ * @example
+ * // Creates a new client and checks the returned data
+ * // Can also be done using promises
+ * try {
+ *     const newClient = await createNewClient({
+ *         name: $("#name").val(),
+ *         maxWeeklyHours: $("#maxWeeklyHours").val(),
+ *         companyIDs: $("#companyIDs").val(),
+ *         active: $("input[name='active']:checked").val(),
+ *         password: "super_secret_password"
+ *     });
+ *
+ *     if ($.isEmptyObject(newClient)) return;
+ *     console.log(`New client created with the id: ${newClient.id}`);
+ * } catch (e) {
+ *     handleException(e);
+ * }
+ */
+async function createNewClient(options) {
+    var contactsEl = document.getElementById("modal-contacts");
+
+    // Only add new contacts if it exists
+    if (contactsEl &amp;&amp; $("#modal-contacts").is(":visible")) {
+        var createContactBody = {array: true, data: []};
+        var fields = contactsEl.children;
+
+        // Get the values from the contacts div
+        await Utils.foreachAsync(fields, async (obj) => {
+            var name = obj.children[0].children[0].value;
+            var email = obj.children[1].children[0].value;
+            var tel = obj.children[2].children[0].value;
+
+            // Only push to the new contact to the body data if everything has a value
+            if (name &amp;&amp; email &amp;&amp; tel) {
+                createContactBody.data.push({name: name, email: email, tel: tel});
+            }
+        });
+
+        // Make a request to create multiple contacts
+        var createdContact = await apiCallAsync("POST", "contact", "create", createContactBody);
+        if ($.isEmptyObject(createdContact)) return false;
+        if (createdContact.status !== "success") {
+            $("#messages").showMessages(createdContact.status, createdContact.messages);
+            return false;
+        }
+        if ($.isEmptyObject(createdContact.body)) return false;
+
+        // Add the created contact's ids to the contactIDs array
+        await Utils.foreachAsync(createdContact.body, async (contact) => {
+            options.contactIDs.push(contact.id);
+        });
+    }
+
+    // Create the new client with all the info
+    var createdClient = await apiCallAsync("POST", "client", "create", options);
+    if ($.isEmptyObject(createdClient)) return false;
+    $("#messages").showMessages(createdClient.status, createdClient.messages);
+    if (createdClient.status !== "success") return false;
+    if ($.isEmptyObject(createdClient.body)) return false;
+    return createdClient.body;
+}
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Fri Aug 31 2018 13:13:06 GMT+0200 (Central European Summer Time) using the Minami theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>

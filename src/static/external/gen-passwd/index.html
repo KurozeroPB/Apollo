@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+
+    <title>Generate secure password</title>
+
+    <meta name="author" content="Kurozero <root@kurozeropb.info>">
+    <meta name="description" content="Quickly generate a secure password">
+    <meta name="theme-color" content="#4286F4">
+    <meta property="og:title" content="Generate secure password">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://b.catgirlsare.sexy/06pS.jpg">
+    <meta property="og:site_name" content="GenPass">
+    <meta property="og:url" content="https://kurozeropb.info/gen-passwd">
+    <meta property="og:locale" content="en-US">
+    <meta property="og:description" content="Quickly generate a secure password">
+
+    <link rel="icon" type="image/jpg" href="https://b.catgirlsare.sexy/06pS.jpg">
+
+    <style>
+        html {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .main {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                width: 50%;
+                text-align: center;
+            }
+        </style>
+</head>
+
+<body>
+    <div class="main">
+        <h1>Generate secure password</h1>
+        <p id="passwd"></p>
+        <select id="passwd-length"></select>
+        <button id="generate">Generate</button>
+    </div>
+
+    <script type="text/javascript" src="passwd.js"></script>
+    <script type="text/javascript">
+        const passwdManager = new Password();
+        const defaultLength = 12;
+        const select = document.querySelector("#passwd-length");
+        for (let i = 1; i <= 20; i++) {
+            const option = document.createElement("option");
+            option.value = i;
+            option.innerText = i;
+            if (i === defaultLength)
+                option.selected = true;
+            select.appendChild(option);
+        }
+
+        async function generate() {
+            let length = defaultLength;
+            try {
+                length = parseInt(select.value);
+            } catch (e) {
+                console.error(e);
+            }
+
+            const password = passwdManager.generate(length);
+            const label = document.querySelector("#passwd");
+            label.innerHTML = `Your generated password: <b>${password}</b>`;
+        }
+
+        document.querySelector("#generate").addEventListener("click", generate);
+
+    </script>
+</body>
+
+</html>

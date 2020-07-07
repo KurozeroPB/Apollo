@@ -1,0 +1,69 @@
+html {
+    background: url('../images/background.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.nav-wrapper {
+    background-color: rgb(238, 110, 115);
+}
+
+.card-margin {
+    margin-bottom: 10em;
+}
+
+.card {
+    border-radius: 0;
+}
+
+.collapsible {
+    border-radius: 0;
+}
+
+#div-wrapper {
+    width: 100%;
+    overflow: hidden;
+}
+
+#left-div {
+    float: left;
+    width: 50%;
+}
+
+#right-div {
+    overflow: hidden;
+}
+
+.collection-item {
+    cursor: pointer;
+}
+
+.modal {
+    border-radius: 0;
+}
+
+#close {
+    background-color: lightgray;
+    border-radius: 0;
+    padding: 1px 10px 1px 10px;
+}
+
+#close:hover {
+    background-color: #ef5350;
+}
+
+iframe {
+    border: 0;
+}
+
+.phone {
+    display: none;
+}
+
+@media screen and (max-width: 600px) {
+    .phone {
+        display: block;
+    }
+}

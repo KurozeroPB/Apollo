@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>utils.js - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Classes</li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="DateTime.html">DateTime</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="DateTime.html#.getCurrentDate">getCurrentDate</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="DateTime.html#.splitDate">splitDate</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="DateTime.html#.splitTime">splitTime</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="Numbers.html">Numbers</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Numbers.html#random">random</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Numbers.html#random_excl">random_excl</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Numbers.html#random_incl">random_incl</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Numbers.html#random_int">random_int</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Numbers.html#random_int31">random_int31</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Numbers.html#random_long">random_long</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="Password.html">Password</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Password.html#generate">generate</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="Utils.html">Utils</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Utils.html#.blendColors">blendColors</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Utils.html#.foreachAsync">foreachAsync</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Utils.html#.forinAsync">forinAsync</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Utils.html#.generateIV">generateIV</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Utils.html#.getUrlParameter">getUrlParameter</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Utils.html#.isNotNullOrUndef">isNotNullOrUndef</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Utils.html#.isNullOrUndef">isNullOrUndef</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Utils.html#.round">round</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Utils.html#.shadeColor">shadeColor</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Utils.html#.stripAndCollapse">stripAndCollapse</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Utils.html#editColor">editColor</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Utils.html#getCookie">getCookie</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Utils.html#waitFor">waitFor</a></span></li><li class="nav-heading"><a href="global.html">Globals</a></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#apiCallAsync">apiCallAsync</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#beforeLogin">beforeLogin</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#browser">browser</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#centerCaptcha">centerCaptcha</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#createNewClient">createNewClient</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#device">device</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#failed">failed</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#handleException">handleException</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#login">login</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#logout">logout</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#os">os</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#renderCaptcha">renderCaptcha</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#setEventCheck">setEventCheck</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#showMessages">showMessages</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#showSnackbar">showSnackbar</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#updateCalendarEvents">updateCalendarEvents</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#updateCalendarTitle">updateCalendarTitle</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#weeks">weeks</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#years">years</a></span></li>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">utils.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * General utility functions
+ */
+class Utils {
+    constructor() {}
+
+    /**
+     * Wait x milliseconds
+     * @param {Number} ms
+     * @returns {Promise&lt;any>}
+     * @example
+     * // Waits 1 second before logging "Hello"
+     * const utils = new Utils();
+     *
+     * // Using async/await
+     * await utils.waitFor(1000);
+     * console.log("Hello");
+     *
+     * // Using promises
+     * utils.waitFor(1000).then(() => console.log("Hello"));
+     */
+    waitFor(ms) {
+        return new Promise((r) => setTimeout(r, ms));
+    }
+
+    /**
+     * Round a number with the precision you like
+     * @param {Number} value - The value to round
+     * @param {Number} precision - The precision to round
+     * @returns {Number} The rounded value
+     * @example
+     * // Returns the rounded value 12.3
+     * const rounded = Utils.round(12.25, 1);
+     */
+    static round(value, precision = 0) {
+        if (Number.isNaN(value)) return 0;
+        let multiplier = Math.pow(10, precision);
+        return Math.round(value * multiplier) / multiplier;
+    }
+
+    /**
+     * Strip and collapse the value
+     * @param {String} value
+     * @returns {String}
+     */
+    static stripAndCollapse(value) {
+        var tokens = value.match(rnothtmlwhite) || [];
+        return tokens.join(" ");
+    }
+
+    /**
+     * Check if the value is null or undefined
+     * @param {*} value
+     * @returns {Boolean}
+     * @example
+     * Utils.isNullOrUndef(null)       //=> True
+     * Utils.isNullOrUndef(undefined)  //=> True
+     * Utils.isNullOrUndef("")         //=> False
+     * Utils.isNullOrUndef(0)          //=> False
+     * Utils.isNullOrUndef({})         //=> False
+     */
+    static isNullOrUndef(value) {
+        return value === null || typeof value === 'undefined';
+    }
+
+    /**
+     * Check if the value is not null or undefined
+     * @param {*} value
+     * @returns {Boolean}
+     * @example
+     * Utils.isNotNullOrUndef(null)       //=> False
+     * Utils.isNotNullOrUndef(undefined)  //=> False
+     * Utils.isNotNullOrUndef("")         //=> True
+     * Utils.isNotNullOrUndef(0)          //=> True
+     * Utils.isNotNullOrUndef({})         //=> True
+     */
+    static isNotNullOrUndef(value) {
+        return value !== null || typeof value !== 'undefined';
+    }
+
+    /**
+     * Get the value from a URL parameter
+     * @param {String} param - The url parameter to get the value of
+     * @returns {String|Boolean} If defined will return the value else it returns false
+     * @example
+     * // Get the value behind companyID from the url
+     * const companyID = Utils.getUrlParameter("companyID");
+     */
+    static getUrlParameter(param) {
+        var sPageURL = decodeURIComponent(window.location.search.substring(1));
+        var sURLVariables = sPageURL.split('&amp;');
+        var sParameterName;
+
+        for (var i = 0; i &lt; sURLVariables.length; i++) {
+            sParameterName = sURLVariables[i].split('=');
+            if (sParameterName[0] === param) return sParameterName[1] === undefined ? null : sParameterName[1];
+        }
+        return null;
+    }
+
+    /**
+     * Generates an initialization vector for AES encryption
+     * @returns {String|null}
+     */
+    static generateIV() {
+        var bytes = new Uint8Array(16);
+        var crypto = window.crypto || window.msCrypto;
+
+        // Create array with random int values
+        if (!crypto) {
+            var numbers = new Numbers(Math.random() * Number.MAX_SAFE_INTEGER);
+            var l = bytes.length;
+            while (l--) {
+                bytes[l] = Math.floor(numbers.random() * 256);
+            }
+        } else {
+            bytes = crypto.getRandomValues(bytes);
+        }
+
+        // Convert to hex and join to string
+        var result = [];
+        var Hex = "0123456789abcdef";
+        for (var i = 0; i &lt; bytes.length; i++) {
+            var v = bytes[i];
+            result.push(Hex[(v &amp; 0xf0) >> 4] + Hex[v &amp; 0x0f]);
+        }
+        return result.join("");
+    }
+
+    disableBtns() {
+        // Disable links and buttons
+
+        var loginType = localStorage.getItem("loginType");
+        if (loginType === "client") {
+            $("a").attr("disabled", "");
+            $("a").removeAttr("href");
+            $("a").removeAttr("data-toggle");
+            $("a").removeAttr("data-target");
+            $("button").attr("disabled", "");
+            $("button").removeAttr("href");
+            $("button").removeAttr("data-toggle");
+            $("button").removeAttr("data-target");
+        }
+    }
+
+    /**
+     * Darken or lighten a color and/or blend two colors together
+     * @param {Number} p - Percentage
+     * @param {String} from - Hex color
+     * @param {String?} to - Hex color
+     * @returns {*} Hex string, if anything errors null
+     */
+    editColor(p, from, to) {
+        if (typeof(p) != "number" || p &lt; -1 || p > 1 || typeof(from) != "string" || (from[0] != 'r' &amp;&amp; from[0] != '#') || (to &amp;&amp; typeof(to) != "string")) return null;
+        if (!this.sbcRip) this.sbcRip = (d) => {
+            let l = d.length, RGB = {};
+            if (l > 9) {
+                d = d.split(",");
+                if (d.length &lt; 3 || d.length > 4) return null;
+                RGB[0] = i(d[0].split("(")[1]);
+                RGB[1] = i(d[1]);
+                RGB[2] = i(d[2]);
+                RGB[3] = d[3] ? parseFloat(d[3]) : -1;
+            } else {
+                if (l == 8 || l == 6 || l &lt; 4) return null;
+                if (l &lt; 6) d = "#" + d[1] + d[1] + d[2] + d[2] + d[3] + d[3] + (l > 4 ? d[4] + "" + d[4] : "");
+                d = i(d.slice(1), 16);
+                RGB[0] = d >> 16 &amp; 255;
+                RGB[1] = d >> 8 &amp; 255;
+                RGB[2] = d &amp; 255;
+                RGB[3] = -1;
+                if (l == 9 || l == 5) {
+                    RGB[3] = r((RGB[2] / 255) * 10000) / 10000;
+                    RGB[2] = RGB[1];
+                    RGB[1] = RGB[0];
+                    RGB[0] = d >> 24 &amp; 255;
+                }
+            }
+            return RGB;
+        };
+        const i = parseInt;
+        const r = Math.round;
+        let h = from.length > 9;
+        h = typeof(to) == "string" ? to.length > 9 ? true : to == "c" ? !h : false : h;
+        const b = p &lt; 0;
+        p = b ? p * -1 : p;
+        to = to &amp;&amp; to != "c" ? to : b ? "#000000" : "#FFFFFF";
+        const f = this.sbcRip(from);
+        const t = this.sbcRip(to);
+        if (!f || !t) return null;
+        if (h) return "rgb" + (f[3] > -1 || t[3] > -1 ? "a(" : "(") + r((t[0] - f[0]) * p + f[0]) + "," + r((t[1] - f[1]) * p + f[1]) + "," + r((t[2] - f[2]) * p + f[2]) + (f[3] &lt; 0 &amp;&amp; t[3] &lt; 0 ? ")" : "," + (f[3] > -1 &amp;&amp; t[3] > -1 ? r(((t[3] - f[3]) * p + f[3]) * 10000) / 10000 : t[3] &lt; 0 ? f[3] : t[3]) + ")");
+        else return "#" + (0x100000000 + r((t[0] - f[0]) * p + f[0]) * 0x1000000 + r((t[1] - f[1]) * p + f[1]) * 0x10000 + r((t[2] - f[2]) * p + f[2]) * 0x100 + (f[3] > -1 &amp;&amp; t[3] > -1 ? r(((t[3] - f[3]) * p + f[3]) * 255) : t[3] > -1 ? r(t[3] * 255) : f[3] > -1 ? r(f[3] * 255) : 255)).toString(16).slice(1, f[3] > -1 || t[3] > -1 ? undefined : -2);
+    }
+
+    /**
+     * Give a color a darker or lighter shade
+     * @param {String} color - Hex color to shade
+     * @param {Number} percent - Amount to shade
+     * @returns {String} - New hex color
+     */
+    static shadeColor(color, percent) {
+        const f = parseInt(color.slice(1), 16);
+        const t = percent &lt; 0 ? 0 : 255;
+        const p = percent &lt; 0 ? percent * -1 : percent;
+        const R = f >> 16;
+        const G = f >> 8 &amp; 0x00FF;
+        const B = f &amp; 0x0000FF;
+        return "#" + (0x1000000 + (Math.round((t - R) * p) + R) * 0x10000 + (Math.round((t - G) * p) + G) * 0x100 + (Math.round((t - B) * p) + B)).toString(16).slice(1);
+    }
+
+    /**
+     * Blend two colors together
+     * @param {String} c0 - First color
+     * @param {String} c1 - Second color
+     * @param {Number} p - Percentage
+     * @returns {String} - New hex color
+     */
+    static blendColors(c0, c1, p) {
+        const f = parseInt(c0.slice(1), 16);
+        const t = parseInt(c1.slice(1), 16);
+        const R1 = f >> 16;
+        const G1 = f >> 8 &amp; 0x00FF;
+        const B1 = f &amp; 0x0000FF;
+        const R2 = t >> 16;
+        const G2 = t >> 8 &amp; 0x00FF;
+        const B2 = t &amp; 0x0000FF;
+        return "#" + (0x1000000 + (Math.round((R2 - R1) * p) + R1) * 0x10000 + (Math.round((G2 - G1) * p) + G1) * 0x100 + (Math.round((B2 - B1) * p) + B1)).toString(16).slice(1);
+    }
+
+    /**
+     * As the name says, forEach but then async
+     * @param {Array|HTMLCollectionOf|HTMLCollection} array - The array to loop over
+     * @param {Function} callback - The callback
+     * @returns {Promise&lt;void>}
+     * @example
+     * // Logs each item asynchronous with an 80 millisecond delay in-between
+     * // You could use promises here too but it really isn't meant to be used with promises
+     * await Utils.foreachAsync(["one", "two", "three"], async (item, index) => {
+     *     await Utils.waitFor(80);
+     *     console.log(`${index}: ${item}`);
+     * });
+     */
+    static async foreachAsync(array, callback) {
+        for (let index = 0; index &lt; array.length; index++) {
+            await callback(array[index], index, array)
+        }
+    }
+
+    /**
+     * Wrapper around for-in loop to make it async
+     * @param {Object} obj
+     * @param {Function} callback
+     * @returns {Promise&lt;void>}
+     * @example
+     * // Logs each item asynchronous with an 80 millisecond delay in-between
+     * await Utils.forinAsync({"one": 1, "two": 2}, async (value, key) => {
+     *     await Utils.waitFor(80);
+     *     console.log(`${key}: ${value}`);
+     * });
+     */
+    static async forinAsync(obj, callback) {
+        for (let a in obj) {
+            if (obj.hasOwnProperty(a)) {
+                await callback(obj[a], a, obj);
+            }
+        }
+    }
+
+    /**
+     * Get a value from the cookies
+     * @param {String} name - Name of item to get
+     * @returns {Promise&lt;String|Null>}
+     * @example
+     * // Get value of SESSION
+     * var session = await Utils.getCookie("SESSION");
+     * if (!session) return console.log("No session found");
+     * console.log(session);
+     */
+    async getCookie(name) {
+        var cookies = document.cookie.split(';');
+        var val = null;
+        await this.foreachAsync(cookies, async (item) => {
+            var pair = item.trim().split('=');
+            if (pair[0] === name) val = pair[1];
+        });
+        return val;
+    }
+}</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Fri Aug 31 2018 13:13:06 GMT+0200 (Central European Summer Time) using the Minami theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>

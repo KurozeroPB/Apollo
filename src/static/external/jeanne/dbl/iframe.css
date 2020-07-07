@@ -1,0 +1,80 @@
+/*
+		  * #2B2B2B
+		  * #67849E
+			*/
+		html {
+  		background-color: rgba(0, 0, 0, 0) !important;
+		}
+
+		body {
+			background-color: rgba(0, 0, 0, 0) !important;
+		}
+
+		.avatar {
+			position: relative;
+			display: block;
+			margin-bottom: 1.5em;
+			opacity: 1 !important;
+		}
+
+		.avatar img {
+			display: block;
+			margin: 0 auto;
+			border-radius: 50%;
+		}
+
+		body {
+			background-color: #2B2B2B;
+		}
+
+		header .nav {
+			background-color: #67849E;
+		}
+
+		.card,
+		.card .card-content .content,
+		.card .card-content .content strong,
+		.card-header .card-header-title {
+			background-color: #303030;
+			color: #f5f5dc;
+			border-radius: 0;
+		}
+
+		.card-footer {
+			border-top: 1px solid #252525;
+		}
+
+		code {
+			background-color: #252525;
+		}
+
+		small {
+			margin-bottom: 0.2em;
+			margin-left: 0.9em;
+		}
+
+		.commands {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			align-items: flex-start;
+		}
+
+		.commands .command {
+			width: 412px;
+			margin: 10px;
+		}
+
+		.nsfw {
+			color: #FF0000;
+		}
+
+		.second-line-example {
+			margin-left: 5em;
+		}
+
+		@media screen and (max-width: 1000px) {
+			div[class="thingy"] p strong {
+				display: none;
+			}
+		}
