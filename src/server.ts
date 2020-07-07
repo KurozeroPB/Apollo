@@ -91,12 +91,16 @@ async function main(): Promise<void> {
     server.get("/", (_, res) => res.redirect(301, "https://vdbroek.dev"));
     
     // Catch all other routes that aren't registered
-    server.get("*", (_, res) => {
-        res.status(404).json(Response({
-            statusCode: 404,
-            statusMessage: "Not Found",
-            message: "The page you are looking for does not exist"
-        }));
+    server.get("*", (req, res) => {
+        if (req.originalUrl.includes("/api")) {
+            res.status(404).json(Response({
+                statusCode: 404,
+                statusMessage: "Not Found",
+                message: "The page you are looking for does not exist"
+            }));
+        } else {
+            res.status(404).sendFile(path.join(__dirname, "static", "errors", "404.html"));
+        }
     });
     
     // Start listening on a defined port
