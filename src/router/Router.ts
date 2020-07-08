@@ -43,34 +43,18 @@ class Router {
                 const temp = await import(path.join(__dirname, "routes", file));
                 const route: Base = new temp.default(this);
 
-                this.logger.info(
-                    "LOAD",
-                    `(Connected Route): ${chalk.redBright(
-                        `[${route.method}]`
-                    )} ${chalk.yellow(`${this.path}${route.path}`)}`
-                );
+                this.logger.info("LOAD", `(Connected Route): ${chalk.redBright(`[${route.method}]`)} ${chalk.yellow(`${this.path}${route.path}`)}`);
                 this.routes.add(route);
             } else {
-                const check = await fs.lstat(
-                    path.join(__dirname, "routes", file)
-                );
+                const check = await fs.lstat(path.join(__dirname, "routes", file));
                 if (check.isDirectory()) {
-                    const recursive = await fs.readdir(
-                        path.join(__dirname, "routes", file)
-                    );
+                    const recursive = await fs.readdir(path.join(__dirname, "routes", file));
                     for (const rf of recursive) {
                         if (rfile.test(rf)) {
-                            const temp = await import(
-                                path.join(__dirname, "routes", file, rf)
-                            );
+                            const temp = await import(path.join(__dirname, "routes", file, rf));
                             const route: Base = new temp.default(this);
 
-                            this.logger.info(
-                                "LOAD",
-                                `(Connected Route): ${chalk.redBright(
-                                    `[${route.method}]`
-                                )} ${chalk.yellow(`${this.path}${route.path}`)}`
-                            );
+                            this.logger.info("LOAD", `(Connected Route): ${chalk.redBright(`[${route.method}]`)} ${chalk.yellow(`${this.path}${route.path}`)}`);
                             this.routes.add(route);
                         }
                     }

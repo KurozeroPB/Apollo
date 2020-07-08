@@ -19,9 +19,7 @@ export default class extends Base {
         res.status(200).json(
             Response({
                 ...statusCodes[200].json,
-                data: this.controller.routes
-                    .map((route) => `[${route.method}] => /api${route.path}`)
-                    .sort()
+                data: this.controller.routes.map((route) => `[${route.method}] => /api${route.path}`).sort()
             })
         );
     }

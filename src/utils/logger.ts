@@ -1,11 +1,6 @@
 import chalk from "chalk";
 import moment from "moment";
-import {
-    Logger as WinstonLogger,
-    createLogger,
-    format,
-    transports
-} from "winston";
+import { Logger as WinstonLogger, createLogger, format, transports } from "winston";
 
 class Logger {
     private _log: WinstonLogger;
@@ -16,12 +11,7 @@ class Logger {
             format: format.combine(
                 format.timestamp(),
                 format.printf(
-                    (log) =>
-                        `${moment(log.timestamp).format(
-                            "DD/MM/YYYY, hh:mm:ss"
-                        )} ${chalk.black.bgGreen(
-                            `[${log.label}]`
-                        )} ${this._getColored(log.level)}: ${log.message}`
+                    (log) => `${moment(log.timestamp).format("DD/MM/YYYY, hh:mm:ss")} ${chalk.black.bgGreen(`[${log.label}]`)} ${this._getColored(log.level)}: ${log.message}`
                 )
             ),
             transports: [new transports.Console()]

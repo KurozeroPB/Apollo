@@ -20,12 +20,7 @@ const logger = new Logger();
 const api = new Router(logger);
 
 // TODO : Replace any with actual type
-function rawBodySaver(
-    req: any,
-    _res: express.Response,
-    buf: Buffer,
-    encoding: BufferEncoding
-): void {
+function rawBodySaver(req: any, _res: express.Response, buf: Buffer, encoding: BufferEncoding): void {
     if (buf && buf.length) {
         req.rawBody = buf.toString(encoding || "utf8");
     }
@@ -41,37 +36,31 @@ morgan.token<express.Request, express.Response>("type-colored", (req) => {
 });
 
 /** Colored status code */
-morgan.token<express.Request, express.Response>(
-    "status-colored",
-    (_req, res) => {
-        if (
-            res.headersSent ||
-            Boolean(Object.entries(res.getHeaders()).length)
-        ) {
-            let status = "";
-            const statusCode = res.statusCode.toString();
-            switch (true) {
-                case res.statusCode >= 500:
-                    status = chalk.red(statusCode);
-                    break;
-                case res.statusCode >= 400:
-                    status = chalk.yellow(statusCode);
-                    break;
-                case res.statusCode >= 300:
-                    status = chalk.cyan(statusCode);
-                    break;
-                case res.statusCode >= 200:
-                    status = chalk.green(statusCode);
-                    break;
-                default:
-                    status = chalk.gray(statusCode);
-                    break;
-            }
-            return status;
+morgan.token<express.Request, express.Response>("status-colored", (_req, res) => {
+    if (res.headersSent || Boolean(Object.entries(res.getHeaders()).length)) {
+        let status = "";
+        const statusCode = res.statusCode.toString();
+        switch (true) {
+            case res.statusCode >= 500:
+                status = chalk.red(statusCode);
+                break;
+            case res.statusCode >= 400:
+                status = chalk.yellow(statusCode);
+                break;
+            case res.statusCode >= 300:
+                status = chalk.cyan(statusCode);
+                break;
+            case res.statusCode >= 200:
+                status = chalk.green(statusCode);
+                break;
+            default:
+                status = chalk.gray(statusCode);
+                break;
         }
-        return "";
+        return status;
     }
-);
+    return "";
+});
 
 async function main(): Promise<void> {
     await api.init();
@@ -80,14 +69,9 @@ async function main(): Promise<void> {
     server.set("env", settings.env);
 
     server.use(
-        morgan(
-            ":type-colored :req[cf-connecting-ip] :method :url :status-colored :response-time[0]ms \":user-agent\"",
-            {
-                skip: (req) =>
-                    !req.originalUrl.includes("/api") ||
-                    req.originalUrl.includes("robots.txt")
-            }
-        )
+        morgan(":type-colored :req[cf-connecting-ip] :method :url :status-colored :response-time[0]ms \":user-agent\"", {
+            skip: (req) => !req.originalUrl.includes("/api") || req.originalUrl.includes("robots.txt")
+        })
     );
     server.use(cors({ origin: "*" })); // Allow request from anywhere
     server.use(
@@ -100,14 +84,9 @@ async function main(): Promise<void> {
     server.use(cookieParser());
     server.use(bodyParser.json({ verify: rawBodySaver }));
     server.use(bodyParser.urlencoded({ verify: rawBodySaver, extended: true }));
-    server.use(
-        bodyParser.raw({ verify: rawBodySaver, type: (): boolean => true })
-    );
+    server.use(bodyParser.raw({ verify: rawBodySaver, type: (): boolean => true }));
     server.use(express.static(path.join(__dirname, "static")));
-    server.use(
-        "/password",
-        express.static(path.join(__dirname, "static/external/gen-passwd"))
-    );
+    server.use("/password", express.static(path.join(__dirname, "static/external/gen-passwd")));
     server.use(
         robots({
             UserAgent: settings.uaBlacklist,
@@ -131,9 +110,7 @@ async function main(): Promise<void> {
 
     // Start listening on a defined port
     server.listen(settings.port, () => {
-        logger.ready(
-            `Starting http server on http://localhost:${settings.port}`
-        );
+        logger.ready(`Starting http server on http://localhost:${settings.port}`);
     });
 }
 

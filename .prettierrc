@@ -1,3 +1,6 @@
 {
-  "trailingComma": "none"
+    "trailingComma": "none",
+    "printWidth": 180,
+    "semi": true,
+    "quoteProps": "consistent"
 }

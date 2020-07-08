@@ -16,10 +16,7 @@ abstract class Base {
         this.logger = ctx.logger;
     }
 
-    abstract async run(
-        req: express.Request,
-        res: express.Response
-    ): Promise<unknown>;
+    abstract async run(req: express.Request, res: express.Response): Promise<unknown>;
 }
 
 export default Base;
