@@ -10,6 +10,6 @@ interface IUser {
     background: string;
 }
 
-interface IUserModel extends IUser, Document {};
+interface IUserModel extends IUser, Document {}
 
 export default IUserModel;

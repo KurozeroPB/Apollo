@@ -5,7 +5,7 @@ interface BaseResponse {
 }
 
 interface Response extends BaseResponse {
-    [x: string]: any; 
+    [x: string]: any;
 }
 
 class ApiResponse implements Response {

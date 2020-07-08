@@ -5,6 +5,6 @@ interface IFeature {
     desc: string;
 }
 
-interface IFeatureModel extends IFeature, Document {};
+interface IFeatureModel extends IFeature, Document {}
 
 export default IFeatureModel;

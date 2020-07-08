@@ -14,6 +14,6 @@ interface IGuild {
     levelupEnabled: boolean;
 }
 
-interface IGuildModel extends IGuild, Document {};
+interface IGuildModel extends IGuild, Document {}
 
 export default IGuildModel;

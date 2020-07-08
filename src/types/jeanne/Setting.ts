@@ -5,6 +5,6 @@ interface ISetting {
     description: string;
 }
 
-interface ISettingModel extends ISetting, Document {};
+interface ISettingModel extends ISetting, Document {}
 
 export default ISettingModel;

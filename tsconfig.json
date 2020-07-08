@@ -4,7 +4,7 @@
         "baseUrl": ".",
         "outDir": "dist",
         "module": "commonjs",
-        "target": "esnext",
+        "target": "es2019", // es2020 & esnext will error when using nullish coalescing operator (??) and optional chaining (?.) using ts-node
         "lib": ["esnext"],
         "esModuleInterop": true,
         "noImplicitAny": true,

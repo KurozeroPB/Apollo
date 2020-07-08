@@ -4,7 +4,7 @@ interface ICommand {
     name: string;
     category: string;
     description: string;
-    usage: string|null;
+    usage: string | null;
     aliases: string[];
     subCommands: string[];
     cooldown: number;
@@ -15,6 +15,6 @@ interface ICommand {
     hidden: boolean;
 }
 
-interface ICommandModel extends ICommand, Document {};
+interface ICommandModel extends ICommand, Document {}
 
 export default ICommandModel;

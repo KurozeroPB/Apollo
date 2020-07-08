@@ -15,12 +15,12 @@ interface PatreonSettings {
     webhook: {
         token: string;
         id: string;
-    }
+    };
 }
 
 interface ApiSettings {
     githubKey: string;
-    version: string,
+    version: string;
 }
 
 interface DiscordSettings {
