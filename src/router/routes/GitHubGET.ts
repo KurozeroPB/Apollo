@@ -16,7 +16,7 @@ export default class extends Base {
         // Return if no origin is send
         const origin = (req.headers.origin as string) || req.headers.referer || "";
         if (!origin || ["https://vdbroek.dev", "https://vdbroek.dev/"].indexOf(origin) === -1)
-            return res.status(405).json(Response(statusCodes[405].json));
+            return res.status(405).json(Response(statusCodes[405].json)); // prettier-ignore
 
         const headers = {
             headers: {

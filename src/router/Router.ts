@@ -7,6 +7,7 @@ import Base from "./Base";
 import settings from "@/settings";
 import Logger from "~/utils/logger";
 import { promises as fs } from "fs";
+import { StringBuilder } from "~/utils/StringBuilder";
 import { rfile } from "~/utils/utils";
 
 class Router {
@@ -23,16 +24,22 @@ class Router {
     }
 
     async init(): Promise<void> {
-        await mongoose.connect(
-            `mongodb://${settings.database.user}:${settings.database.password}@${settings.database.host}:${settings.database.port}/${settings.database.name}?retryWrites=true`,
-            {
-                useCreateIndex: true,
-                useNewUrlParser: true,
-                keepAlive: true,
-                useFindAndModify: false,
-                useUnifiedTopology: true
-            }
+        const uri = StringBuilder.Format(
+            "mongodb://{0}:{1}@{2}:{3}/{4}?retryWrites=true",
+            settings.database.user,
+            settings.database.password,
+            settings.database.host,
+            settings.database.port,
+            settings.database.name
         );
+
+        await mongoose.connect(uri, {
+            useCreateIndex: true,
+            useNewUrlParser: true,
+            keepAlive: true,
+            useFindAndModify: false,
+            useUnifiedTopology: true
+        });
         await this._loadRoutes();
     }
 
