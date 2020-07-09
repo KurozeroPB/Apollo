@@ -27,18 +27,15 @@ export default class extends Base {
         const languages: any = {};
         const array: any[] = [];
         try {
-            const response = await axios.get("https://api.github.com/user/repos", headers);
-            await foreachAsync(
-                response.data,
-                async (repo: any): Promise<void> => {
-                    if (repo.language) {
-                        const item = array.find((i): boolean => i.language === repo.language);
-                        if (item) item.count++;
-                        else array.push({ language: repo.language, count: 1 });
-                    }
+            const response = await axios.get<any[]>("https://api.github.com/user/repos", headers);
+            await foreachAsync(response.data, async (repo) => {
+                if (repo.language) {
+                    const item = array.find((i): boolean => i.language === repo.language);
+                    if (item) item.count++;
+                    else array.push({ language: repo.language, count: 1 });
                 }
-            );
-            await foreachAsync(array, async (obj: any): Promise<any> => (languages[obj.language] = obj.count));
+            });
+            await foreachAsync(array, async (obj) => (languages[obj.language] = obj.count));
             res.status(200).json(
                 Response({
                     ...statusCodes[200].json,

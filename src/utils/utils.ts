@@ -31,14 +31,14 @@ export interface Context {
 export const rfile = /^.+\.(j|t)s$/iu;
 
 /** An async forEach function */
-export async function foreachAsync(a: ArrayLike<any>, fn: ForEachFunction): Promise<void> {
+export async function foreachAsync<T>(a: ArrayLike<T>, fn: ForEachFunction): Promise<void> {
     for (let i = 0; i < a.length; i++) {
         await fn(a[i], i, a);
     }
 }
 
 /** Wrapper around for-in loop to make it async */
-export async function forinAsync(o: Record<string, any>, fn: ForInFunction): Promise<void> {
+export async function forinAsync<T extends Record<string | number | symbol, unknown>>(o: T, fn: ForInFunction): Promise<void> {
     for (const i in o) {
         if (o.hasOwnProperty(i)) {
             await fn(o[i], i, o);
