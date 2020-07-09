@@ -69,16 +69,12 @@ async function main(): Promise<void> {
     server.set("env", settings.env);
 
     server.use(
-        morgan(":type-colored :req[cf-connecting-ip] :method :url :status-colored :response-time[0]ms \":user-agent\"", {
+        morgan(':type-colored :req[cf-connecting-ip] :method :url :status-colored :response-time[0]ms ":user-agent"', {
             skip: (req) => !req.originalUrl.includes("/api") || req.originalUrl.includes("robots.txt")
         })
     );
     server.use(cors({ origin: "*" })); // Allow request from anywhere
-    server.use(
-        uaBlocker(settings.uaBlacklist, {
-            text: "Nothing to see here - move along please..."
-        })
-    ); // Block user agents that have been spamming the server
+    server.use(uaBlocker(settings.uaBlacklist, { text: "Nothing to see here - move along please..." })); // Block user agents that have been spamming the server
     server.use(compression()); // Compress response for faster load times
     server.use(helmet()); // Protect against several possible vulnerabilities e.g. XSS, MIME type sniffing
     server.use(cookieParser());
@@ -86,14 +82,7 @@ async function main(): Promise<void> {
     server.use(bodyParser.urlencoded({ verify: rawBodySaver, extended: true }));
     server.use(bodyParser.raw({ verify: rawBodySaver, type: (): boolean => true }));
     server.use(express.static(path.join(__dirname, "static")));
-    server.use("/password", express.static(path.join(__dirname, "static/external/gen-passwd")));
-    server.use(
-        robots({
-            UserAgent: settings.uaBlacklist,
-            Disallow: ["*"],
-            CrawlDelay: "10"
-        })
-    );
+    server.use(robots({ UserAgent: settings.uaBlacklist, Disallow: ["*"], CrawlDelay: "10" }));
 
     server.use(api.path, api.router); // Add all the api routes
 

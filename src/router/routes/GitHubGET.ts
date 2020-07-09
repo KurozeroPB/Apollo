@@ -8,19 +8,15 @@ import { statusCodes, foreachAsync } from "~/utils/utils";
 
 export default class extends Base {
     constructor(controller: Router) {
-        super({
-            path: "/github",
-            method: "GET",
-            logger: controller.logger,
-            controller
-        });
+        super({ path: "/github", method: "GET", logger: controller.logger, controller });
         this.controller.router.get(this.path, this.run.bind(this));
     }
 
     async run(req: express.Request, res: express.Response): Promise<any> {
         // Return if no origin is send
         const origin = (req.headers.origin as string) || req.headers.referer || "";
-        if (!origin || ["https://vdbroek.dev", "https://vdbroek.dev/"].indexOf(origin) === -1) return res.status(405).json(Response(statusCodes[405].json));
+        if (!origin || ["https://vdbroek.dev", "https://vdbroek.dev/"].indexOf(origin) === -1)
+            return res.status(405).json(Response(statusCodes[405].json));
 
         const headers = {
             headers: {

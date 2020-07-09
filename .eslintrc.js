@@ -29,7 +29,9 @@ module.exports = {
             "SwitchCase": 1
         }],
         "no-undef": "off",
-        "quotes": ["error", "double"],
+        "quotes": ["error", "double", {
+            "avoidEscape": true
+        }],
         "semi": ["error", "always"],
         "semi-spacing": "error",
         "semi-style": ["error", "last"]
