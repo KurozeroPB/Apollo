@@ -1,10 +1,8 @@
 import path from "path";
+import express from "express";
 import Router from "~/router/Router";
 import Logger from "./logger";
-
-type ForEachFunction = (value: any, index: number, array: ArrayLike<any>) => Promise<unknown>;
-
-type ForInFunction = (value: any, index: string, object: Record<string, any>) => Promise<unknown>;
+import { AxiosError } from "axios";
 
 type Codes = 200 | 400 | 403 | 404 | 405 | 429 | 500;
 
@@ -21,6 +19,10 @@ type StatusCodes = {
     [T in Codes]: StatusCode;
 };
 
+export interface ExtendedRequest extends express.Request {
+    [x: string]: any;
+}
+
 export interface Context {
     path: string;
     method: string;
@@ -30,20 +32,8 @@ export interface Context {
 
 export const rfile = /^.+\.(j|t)s$/iu;
 
-/** An async forEach function */
-export async function foreachAsync<T>(a: ArrayLike<T>, fn: ForEachFunction): Promise<void> {
-    for (let i = 0; i < a.length; i++) {
-        await fn(a[i], i, a);
-    }
-}
-
-/** Wrapper around for-in loop to make it async */
-export async function forinAsync<T extends Record<string | number | symbol, unknown>>(o: T, fn: ForInFunction): Promise<void> {
-    for (const i in o) {
-        if (o.hasOwnProperty(i)) {
-            await fn(o[i], i, o);
-        }
-    }
+export function isAxiosError(error: Error | AxiosError): error is AxiosError {
+    return !!(error as AxiosError).response;
 }
 
 export const statusCodes: StatusCodes = {

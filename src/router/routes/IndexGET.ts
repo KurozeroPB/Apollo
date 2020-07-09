@@ -11,11 +11,15 @@ export default class extends Base {
     }
 
     async run(_: express.Request, res: express.Response): Promise<void> {
-        res.status(200).json(
-            Response({
-                ...statusCodes[200].json,
-                data: this.controller.routes.map((route) => `[${route.method}] => /api${route.path}`).sort()
-            })
-        );
+        try {
+            res.status(200).json(
+                Response({
+                    ...statusCodes[200].json,
+                    data: this.controller.routes.map((route) => `[${route.method}] => /api${route.path}`).sort()
+                })
+            );
+        } catch (error) {
+            this.handleException(res, error);
+        }
     }
 }

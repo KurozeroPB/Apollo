@@ -19,8 +19,12 @@ interface PatreonSettings {
 }
 
 interface ApiSettings {
-    githubKey: string;
     version: string;
+}
+
+interface GitHubSettings {
+    username: string;
+    password: string;
 }
 
 interface DiscordSettings {
@@ -37,6 +41,7 @@ interface Settings {
     sentry: SentrySettings;
     patreon: PatreonSettings;
     api: ApiSettings;
+    github: GitHubSettings;
     discord: DiscordSettings;
 }
 

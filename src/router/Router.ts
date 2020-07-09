@@ -58,8 +58,9 @@ class Router {
                     const recursive = await fs.readdir(path.join(__dirname, "routes", file));
                     for (const rf of recursive) {
                         if (rfile.test(rf)) {
-                            const temp = await import(path.join(__dirname, "routes", file, rf));
-                            const route: Base = new temp.default(this);
+                            const dynamic = await import(path.join(__dirname, "routes", file, rf));
+                            const route = new dynamic.default(this) as Base;
+                            route.path = "/" + file + route.path;
 
                             this.logger.info("LOAD", `(Connected Route): ${chalk.redBright(`[${route.method}]`)} ${chalk.yellow(`${this.path}${route.path}`)}`);
                             this.routes.add(route);

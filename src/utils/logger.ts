@@ -30,10 +30,12 @@ class Logger {
         this._log.warn(message, { label });
     }
 
-    public error(label: string, error: Error): void {
-        this._log.error(error.stack ? error.stack : error.toString(), {
-            label
-        });
+    public error(label: string, error: Error | string): void {
+        if (typeof error === "string") {
+            this._log.error(error, { label });
+        } else {
+            this._log.error(error.stack ? error.stack : error.toString(), { label });
+        }
     }
 
     private _getColored(logLevel: string): string {
