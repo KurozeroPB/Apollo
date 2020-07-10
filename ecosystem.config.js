@@ -1,8 +1,9 @@
 module.exports = {
     apps: [
         {
-            name: "ScopeAPI",
+            name: "Apollo",
             script: "ts-node",
+            interpreter: `${process.env.NVM_BIN}/node`,
             args: "-r tsconfig-paths/register ./src/server.ts",
             instances: 1,
             autorestart: true,
