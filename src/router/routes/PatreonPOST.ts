@@ -12,7 +12,7 @@ const client = Eris("");
 
 export default class extends Base {
     constructor(controller: Router) {
-        super({ path: "/patreon", method: "POST", logger: controller.logger, controller });
+        super({ path: "/patreon", method: "POST", controller });
         this.controller.router.post(this.path, this.run.bind(this));
     }
 

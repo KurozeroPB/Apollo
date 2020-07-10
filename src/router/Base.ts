@@ -4,18 +4,21 @@ import Logger from "~/utils/logger";
 import { Response } from "~/types/Response";
 import { AxiosError } from "axios";
 import { Context, statusCodes, isAxiosError } from "~/utils/utils";
+import Database from "~/utils/Database";
 
 abstract class Base {
+    database: Database;
     path: string;
     method: string;
     controller: Router;
     logger: Logger;
 
     constructor(ctx: Context) {
+        this.database = ctx.controller.database;
         this.path = ctx.path;
         this.method = ctx.method;
         this.controller = ctx.controller;
-        this.logger = ctx.logger;
+        this.logger = ctx.controller.logger;
     }
 
     abstract async run(req: express.Request, res: express.Response): Promise<unknown>;

@@ -1,8 +1,9 @@
 import path from "path";
 import express from "express";
 import Router from "~/router/Router";
-import Logger from "./logger";
 import { AxiosError } from "axios";
+
+type ForEachAsyncFN<T> = (value: T, index: number, array: ArrayLike<T>) => Promise<unknown>;
 
 type Codes = 200 | 400 | 403 | 404 | 405 | 429 | 500;
 
@@ -27,13 +28,29 @@ export interface Context {
     path: string;
     method: string;
     controller: Router;
-    logger: Logger;
 }
 
 export const rfile = /^.+\.(j|t)s$/iu;
 
 export function isAxiosError(error: Error | AxiosError): error is AxiosError {
     return !!(error as AxiosError).response;
+}
+
+export function isEmptyObject(o: Record<string, any>): boolean {
+    for (const _ in o) {
+        return false;
+    }
+    return true;
+}
+
+export function wait(ms: number): Promise<void> {
+    return new Promise((r) => setTimeout(r, ms));
+}
+
+export async function foreachAsync<T = any>(a: ArrayLike<T>, fn: ForEachAsyncFN<T>): Promise<void> {
+    for (let i = 0; i < a.length; i++) {
+        await fn(a[i], i, a);
+    }
 }
 
 export const statusCodes: StatusCodes = {

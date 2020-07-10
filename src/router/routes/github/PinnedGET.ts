@@ -1,4 +1,5 @@
 import express from "express";
+import path from "path";
 import axios from "axios";
 import settings from "@/settings";
 import Base from "~/router/Base";
@@ -9,15 +10,18 @@ import { statusCodes } from "~/utils/utils";
 
 export default class extends Base {
     constructor(controller: Router) {
-        super({ path: "/repos", method: "GET", logger: controller.logger, controller });
+        const subpath = path.dirname(__filename).split(path.sep).pop();
+        super({ path: `/${subpath}/pinned`, method: "GET", controller });
         this.controller.router.get(this.path, this.run.bind(this));
     }
 
-    async run(req: express.Request, res: express.Response): Promise<any> {
+    async run(req: express.Request, res: express.Response): Promise<void> {
         // Return if no origin is send or origin is not vdbroek.dev
         const origin = (req.headers.origin as string) || req.headers.referer || "";
-        if (!origin || !origin.match(/^(https:\/\/)?vdbroek\.dev(\/)?$/ui))
-            return res.status(405).json(Response(statusCodes[405].json)); // prettier-ignore
+        if (!origin || !origin.match(/^(https:\/\/)?vdbroek\.dev(\/)?$/iu)) {
+            res.status(405).json(Response(statusCodes[405].json));
+            return;
+        }
 
         try {
             // prettier-ignore

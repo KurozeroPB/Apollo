@@ -82,13 +82,14 @@ async function main(): Promise<void> {
     server.use(cookieParser());
     server.use(bodyParser.json({ verify: rawBodySaver }));
     server.use(bodyParser.urlencoded({ verify: rawBodySaver, extended: true }));
-    server.use(bodyParser.raw({ verify: rawBodySaver, type: (): boolean => true }));
+    server.use(bodyParser.raw({ verify: rawBodySaver, type: () => true }));
     server.use(express.static(path.join(__dirname, "static")));
     server.use(robots({ UserAgent: settings.uaBlacklist, Disallow: ["*"], CrawlDelay: "10" }));
 
     server.use(api.path, api.router); // Add all the api routes
 
     server.get("/", (_, res) => res.redirect(301, "https://vdbroek.dev"));
+    server.get("/privacy/nekosapp", (_, res) => res.sendFile(path.join(__dirname, "static", "external", "nekos", "index.html")));
 
     // Catch all other routes that aren't registered
     server.get("*", (req, res) => {

@@ -14,7 +14,7 @@ Private API Service
 - (/) redirects to https://vdbroek.dev
 - (/api) is all the api routes
 
-## Routes
+## API Routes
 ### General
 |path|description|
 |:-|:-|
@@ -24,18 +24,18 @@ Private API Service
 ### GitHub
 |path|description|
 |:-|:-|
-|`/github/repos`|get pinned repos|
+|`/github/pinned`|get pinned repos|
 
 ### Discord
 |path|description|
 |:-|:-|
-|`/discord/callback`||
-|`/discord/login`||
-|`/discord/revoke`||
+|`/discord/callback`|handle discord's response and redirect user back to the website|
+|`/discord/login`|redirect user to discord's oauth login page|
+|`/discord/revoke`|revoke authorised user's token|
 
 ### Jeanne
 |path|description|
 |:-|:-|
-|`/jeanne/donators`|get jeanne donators|
+|`/jeanne/donators`|get jeanne's donators|
 |`/jeanne`|get settings/commands|
 |`/jeanne/profile`|get user profile image|
