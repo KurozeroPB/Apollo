@@ -5,13 +5,14 @@ interface BaseResponse {
 }
 
 interface Response extends BaseResponse {
-    [x: string]: any;
+    [x: string]: unknown;
 }
 
 class ApiResponse implements Response {
     public statusCode: number;
     public statusMessage: string;
     public message: string;
+    [x: string]: unknown;
 
     public constructor(response: Response) {
         this.statusCode = response.statusCode;
