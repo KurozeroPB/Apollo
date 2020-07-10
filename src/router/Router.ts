@@ -5,6 +5,7 @@ import Collection from "@kurozero/collection";
 import Base from "./Base";
 import Logger from "~/utils/Logger";
 import Database from "~/utils/Database";
+import { rfile } from "~/utils/utils";
 import { promises as fs } from "fs";
 
 class Router {
@@ -35,7 +36,9 @@ class Router {
             if (dirent.isDirectory()) {
                 yield* this.getFiles(res);
             } else {
-                yield res;
+                if (rfile.test(res)) {
+                    yield res;
+                }
             }
         }
     }
@@ -43,6 +46,7 @@ class Router {
     async init(): Promise<void> {
         const basePath = path.join(__dirname, "routes");
         for await (const file of this.getFiles(basePath)) {
+            console.log(file);
             const Route = (await import(file)).default;
             const route = new Route(this) as Base;
             this.logger.info("LOAD", `(Connected Route): ${chalk.redBright(`[${route.method}]`)} ${chalk.yellow(`${this.path}${route.path}`)}`);

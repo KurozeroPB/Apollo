@@ -30,7 +30,7 @@ export interface Context {
     controller: Router;
 }
 
-export const rfile = /^.+\.(j|t)s$/iu;
+export const rfile = /\.(j|t)s$/iu;
 
 export function isAxiosError(error: Error | AxiosError): error is AxiosError {
     return !!(error as AxiosError).response;
