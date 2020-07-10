@@ -1,6 +1,6 @@
 import express from "express";
 import Router from "./Router";
-import Logger from "~/utils/logger";
+import Logger from "~/utils/Logger";
 import { Response } from "~/types/Response";
 import { AxiosError } from "axios";
 import { Context, statusCodes, isAxiosError } from "~/utils/utils";

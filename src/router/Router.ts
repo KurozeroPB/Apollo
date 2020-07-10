@@ -3,7 +3,7 @@ import express from "express";
 import chalk from "chalk";
 import Collection from "@kurozero/collection";
 import Base from "./Base";
-import Logger from "~/utils/logger";
+import Logger from "~/utils/Logger";
 import { promises as fs } from "fs";
 import { rfile } from "~/utils/utils";
 import Database from "~/utils/Database";

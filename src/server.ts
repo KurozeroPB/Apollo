@@ -12,7 +12,7 @@ import uaBlocker from "express-user-agent-blocker";
 import compression from "compression";
 import helmet from "helmet";
 import settings from "@/settings";
-import Logger from "~/utils/logger";
+import Logger from "~/utils/Logger";
 import Router from "~/router/Router";
 import { Response } from "./types/Response";
 import { statusCodes } from "./utils/utils";
