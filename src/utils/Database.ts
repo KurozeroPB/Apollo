@@ -37,11 +37,11 @@ class Database {
 
         const jeanne = connection.useDb("jeanne");
         this.Jeanne = {
-            Commands: jeanne.model("Command", Command, "commands"),
-            Features: jeanne.model("Feature", Feature, "features"),
-            Guilds: jeanne.model("Guild", Guild, "guilds"),
-            Settings: jeanne.model("Setting", Setting, "settings"),
-            Users: jeanne.model("User", User, "users")
+            Commands: jeanne.model("Commands", Command),
+            Features: jeanne.model("Features", Feature),
+            Guilds: jeanne.model("Guilds", Guild),
+            Settings: jeanne.model("Settings", Setting),
+            Users: jeanne.model("Users", User)
         };
     }
 }
