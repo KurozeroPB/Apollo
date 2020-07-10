@@ -4,18 +4,21 @@ import chalk from "chalk";
 import Collection from "@kurozero/collection";
 import Base from "./Base";
 import Logger from "~/utils/Logger";
-import { promises as fs } from "fs";
-import { rfile } from "~/utils/utils";
 import Database from "~/utils/Database";
+import { promises as fs } from "fs";
 
 class Router {
-    database: Database;
     router: express.Router;
     routes: Collection<Base>;
     path: string;
     logger: Logger;
+    database: Database;
 
     constructor(logger: Logger) {
+        this.router = express.Router();
+        this.routes = new Collection(Base);
+        this.path = "/api";
+        this.logger = logger;
         this.database = new Database({
             useCreateIndex: true,
             useNewUrlParser: true,
@@ -23,40 +26,27 @@ class Router {
             useFindAndModify: false,
             useUnifiedTopology: true
         });
-        this.router = express.Router();
-        this.routes = new Collection(Base);
-        this.path = "/api";
-        this.logger = logger;
+    }
+
+    async* getFiles(dir: string): AsyncGenerator<string, void, unknown> {
+        const dirents = await fs.readdir(dir, { withFileTypes: true });
+        for (const dirent of dirents) {
+            const res = path.resolve(dir, dirent.name);
+            if (dirent.isDirectory()) {
+                yield* this.getFiles(res);
+            } else {
+                yield res;
+            }
+        }
     }
 
     async init(): Promise<void> {
-        await this._loadRoutes();
-    }
-
-    private async _loadRoutes(): Promise<void> {
-        const files = await fs.readdir(path.join(__dirname, "routes"));
-        for (const file of files) {
-            if (rfile.test(file)) {
-                const temp = await import(path.join(__dirname, "routes", file));
-                const route: Base = new temp.default(this);
-
-                this.logger.info("LOAD", `(Connected Route): ${chalk.redBright(`[${route.method}]`)} ${chalk.yellow(`${this.path}${route.path}`)}`);
-                this.routes.add(route);
-            } else {
-                const check = await fs.lstat(path.join(__dirname, "routes", file));
-                if (check.isDirectory()) {
-                    const recursive = await fs.readdir(path.join(__dirname, "routes", file));
-                    for (const rf of recursive) {
-                        if (rfile.test(rf)) {
-                            const dynamic = await import(path.join(__dirname, "routes", file, rf));
-                            const route = new dynamic.default(this) as Base;
-
-                            this.logger.info("LOAD", `(Connected Route): ${chalk.redBright(`[${route.method}]`)} ${chalk.yellow(`${this.path}${route.path}`)}`);
-                            this.routes.add(route);
-                        }
-                    }
-                }
-            }
+        const basePath = path.join(__dirname, "routes");
+        for await (const file of this.getFiles(basePath)) {
+            const Route = (await import(file)).default;
+            const route = new Route(this) as Base;
+            this.logger.info("LOAD", `(Connected Route): ${chalk.redBright(`[${route.method}]`)} ${chalk.yellow(`${this.path}${route.path}`)}`);
+            this.routes.add(route);
         }
     }
 }
