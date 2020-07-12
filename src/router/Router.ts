@@ -46,7 +46,6 @@ class Router {
     async init(): Promise<void> {
         const basePath = path.join(__dirname, "routes");
         for await (const file of this.getFiles(basePath)) {
-            console.log(file);
             const Route = (await import(file)).default;
             const route = new Route(this) as Base;
             this.logger.info("LOAD", `(Connected Route): ${chalk.redBright(`[${route.method}]`)} ${chalk.yellow(`${this.path}${route.path}`)}`);
