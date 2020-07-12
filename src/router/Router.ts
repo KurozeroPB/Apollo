@@ -29,7 +29,7 @@ class Router {
         });
     }
 
-    async* getFiles(dir: string): AsyncGenerator<string, void, unknown> {
+    async *getFiles(dir: string): AsyncGenerator<string, void, unknown> {
         const dirents = await fs.readdir(dir, { withFileTypes: true });
         for (const dirent of dirents) {
             const res = path.resolve(dir, dirent.name);
