@@ -10,8 +10,8 @@ import { Response } from "~/types/Response";
 export default class extends Base {
     constructor(controller: Router) {
         const subpath = path.dirname(__filename).split(path.sep).pop();
-        super({ path: `/${subpath}/login`, method: "POST", controller });
-        this.controller.router.post(this.path, this.run.bind(this));
+        super({ path: `/${subpath}/login`, method: "GET", controller });
+        this.controller.router.get(this.path, this.run.bind(this));
     }
 
     async run(req: express.Request, res: express.Response): Promise<void> {
