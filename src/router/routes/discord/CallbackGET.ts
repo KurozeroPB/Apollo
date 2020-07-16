@@ -17,12 +17,6 @@ export default class extends Base {
     }
 
     async run(req: express.Request, res: express.Response): Promise<void> {
-        const origin = req.headers.origin || req.headers.referer;
-        if (!origin || origin.indexOf("discord.com") === -1 || origin.indexOf("discordapp.com") === -1) {
-            res.status(405).json(Response(statusCodes[405].json));
-            return;
-        }
-
         if (!req.query.code) {
             res.status(400).json(Response(statusCodes[400].json));
             return;
@@ -40,7 +34,7 @@ export default class extends Base {
                 client_secret: settings.discord.clientSecret,
                 grant_type: "authorization_code",
                 code: String(req.query.code),
-                redirect_uri: "https://kurozeropb.info/api/v1/discord/callback",
+                redirect_uri: "https://kurozeropb.info/api/discord/callback",
                 scope: "identify guilds"
             };
 
