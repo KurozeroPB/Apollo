@@ -31,7 +31,7 @@ abstract class Base {
             message = error.message ? error.message : error.toString();
         }
 
-        this.logger.error("GitHub", message);
+        this.logger.error(this.path, message);
         res.status(500).json(
             Response({
                 ...statusCodes[500].json,
