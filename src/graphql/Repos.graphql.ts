@@ -1,5 +1,5 @@
 export default `{
-    repositoryOwner(login: "kurozeropb") {
+    repositoryOwner(login: "pepijn98") {
         ... on ProfileOwner {
             itemShowcase {
                 items(first: 6) {
