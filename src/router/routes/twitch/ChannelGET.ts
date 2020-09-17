@@ -32,7 +32,7 @@ interface TwitchAuth {
     token_type: string;
 }
 
-const getTwitchData = (name: string, token: string): Promise<TwitchBody> => new Promise((resolve, reject) => {
+const getTwitchData = (name: string, token: string): Promise<Data[]> => new Promise((resolve, reject) => {
     axios.get<TwitchBody>("https://api.twitch.tv/helix/streams", {
         params: {
             user_login: name
@@ -44,7 +44,7 @@ const getTwitchData = (name: string, token: string): Promise<TwitchBody> => new 
     }).then((res) => {
         if (res.status >= 200 && res.status <= 299) {
             if (res.data) {
-                resolve(res.data);
+                resolve(res.data.data);
             }
         } else {
             reject(new Error("Unable to authenticate with Twitch API"));
@@ -86,10 +86,7 @@ export default class extends Base {
                     res.status(200).json(
                         Response({
                             ...statusCodes[200].json,
-                            body: JSON.stringify(data),
-                            headers: {
-                                "Access-Control-Allow-Origin": "*"
-                            }
+                            data: JSON.stringify(data)
                         })
                     );
                 }).catch((e) => {
