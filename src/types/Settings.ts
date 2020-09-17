@@ -1,4 +1,4 @@
-interface MongoSettings {
+interface MongoDB {
     user: string;
     password: string;
     host: string;
@@ -6,11 +6,11 @@ interface MongoSettings {
     name: string;
 }
 
-interface SentrySettings {
+interface Sentry {
     dsn: string;
 }
 
-interface PatreonSettings {
+interface Patreon {
     secret: string;
     webhook: {
         token: string;
@@ -18,31 +18,37 @@ interface PatreonSettings {
     };
 }
 
-interface ApiSettings {
+interface Api {
     version: string;
 }
 
-interface GitHubSettings {
+interface GitHub {
     username: string;
     password: string;
 }
 
-interface DiscordSettings {
-    clientId: string;
-    clientSecret: string;
+interface Discord {
+    id: string;
+    secret: string;
     jeanne: string;
+}
+
+interface Twitch {
+    id: string;
+    secret: string;
 }
 
 interface Settings {
     env: string;
     port: number;
     uaBlacklist: string[];
-    database: MongoSettings;
-    sentry: SentrySettings;
-    patreon: PatreonSettings;
-    api: ApiSettings;
-    github: GitHubSettings;
-    discord: DiscordSettings;
+    database: MongoDB;
+    sentry: Sentry;
+    patreon: Patreon;
+    api: Api;
+    github: GitHub;
+    discord: Discord;
+    twitch: Twitch;
 }
 
 export default Settings;

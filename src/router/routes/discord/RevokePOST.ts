@@ -31,7 +31,7 @@ export default class extends Base {
             const config = {
                 headers: {
                     "Content-Type": "application/x-www-form-urlencoded",
-                    "Authorization": `Basic ${Buffer.from(`${settings.discord.clientId}:${settings.discord.clientSecret}`, "binary").toString("base64")}`
+                    "Authorization": `Basic ${Buffer.from(`${settings.discord.id}:${settings.discord.secret}`, "binary").toString("base64")}`
                 }
             };
 

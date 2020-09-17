@@ -30,8 +30,8 @@ export default class extends Base {
             };
 
             const requestBody = {
-                client_id: settings.discord.clientId,
-                client_secret: settings.discord.clientSecret,
+                client_id: settings.discord.id,
+                client_secret: settings.discord.secret,
                 grant_type: "authorization_code",
                 code: String(req.query.code),
                 redirect_uri: "https://kurozeropb.info/api/discord/callback",

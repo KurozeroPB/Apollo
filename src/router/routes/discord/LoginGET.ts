@@ -27,7 +27,7 @@ export default class extends Base {
                 StringBuilder.Format(
                     "https://discord.com/oauth2/authorize?response_type=code&redirect_uri={0}&scope=identify%20guilds&client_id={1}",
                     redirect,
-                    settings.discord.clientId
+                    settings.discord.id
                 )
             );
         } catch (error) {
