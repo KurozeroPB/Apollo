@@ -86,7 +86,7 @@ export default class extends Base {
                     res.status(200).json(
                         Response({
                             ...statusCodes[200].json,
-                            data: JSON.stringify(data)
+                            data
                         })
                     );
                 }).catch((e) => {
