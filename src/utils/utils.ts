@@ -31,6 +31,7 @@ export interface Context {
 }
 
 export const rfile = /\.(j|t)s$/iu;
+export const rdisabled = /\.disabled\.(j|t)s$/iu;
 
 export function isAxiosError(error: Error | AxiosError): error is AxiosError {
     return !!(error as AxiosError).response;

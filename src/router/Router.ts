@@ -5,7 +5,7 @@ import Collection from "@kurozero/collection";
 import Base from "./Base";
 import Logger from "~/utils/Logger";
 import Database from "~/utils/Database";
-import { rfile } from "~/utils/utils";
+import { rdisabled, rfile } from "~/utils/utils";
 import { promises as fs } from "fs";
 
 class Router {
@@ -32,11 +32,18 @@ class Router {
     async *getFiles(dir: string): AsyncGenerator<string, void, unknown> {
         const dirents = await fs.readdir(dir, { withFileTypes: true });
         for (const dirent of dirents) {
+            // Skip disabled routes
+            if (dirent.name.endsWith(".disabled")) {
+                continue;
+            }
             const res = path.resolve(dir, dirent.name);
             if (dirent.isDirectory()) {
                 yield* this.getFiles(res);
             } else {
-                if (rfile.test(res)) {
+                // Skip disabled routes
+                if (rdisabled.test(res)) {
+                    continue;
+                } else if (rfile.test(res)) {
                     yield res;
                 }
             }
